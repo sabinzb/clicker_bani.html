@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker de Bani 💸</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #money {
+            font-size: 2em;
+            margin: 20px;
+        }
+        #click-btn {
+            padding: 20px;
+            font-size: 1.5em;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+        #upgrades {
+            margin-top: 30px;
+        }
+        .upgrade {
+            margin: 10px;
+            padding: 10px;
+            background-color: #f0ad4e;
+            border: none;
+            cursor: pointer;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>💸 Clicker de Bani 💸</h1>
+    <p id="money">Bani: 0</p>
+    <button id="click-btn">Click pentru bani!</button>
+
+    <div id="upgrades">
+        <h2>Upgrade-uri:</h2>
+        <button class="upgrade" onclick="buyUpgrade(10, 1)">Upgrade 1 (10 bani): +1 bani/click</button>
+        <button class="upgrade" onclick="buyUpgrade(50, 5)">Upgrade 2 (50 bani): +5 bani/click</button>
+    </div>
+
+    <script>
+        let money = 0;
+        let moneyPerClick = 1;
+
+        document.getElementById("click-btn").addEventListener("click", function() {
+            money += moneyPerClick;
+            document.getElementById("money").textContent = "Bani: " + money;
+        });
+
+        function buyUpgrade(cost, increase) {
+            if (money >= cost) {
+                money -= cost;
+                moneyPerClick += increase;
+                document.getElementById("money").textContent = "Bani: " + money;
+            } else {
+                alert("Nu ai suficienți bani pentru acest upgrade!");
+            }
+        }
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker de Bani 💸</title>
+    <style>
+        body {
+            background-color: #f0f4f8;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+        #money {
+            font-size: 2.5em;
+            margin: 20px;
+            color: #4CAF50;
+        }
+        #click-btn {
+            padding: 20px 40px;
+            font-size: 1.8em;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            transition: transform 0.1s;
+        }
+        #click-btn:hover {
+            background-color: #45a049;
+        }
+        #click-btn:active {
+            transform: scale(0.95);
+        }
+        #upgrades {
+            margin-top: 40px;
+        }
+        .upgrade {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #f0ad4e;
+            border: none;
+            cursor: pointer;
+            color: white;
+            border-radius: 10px;
+            font-size: 1.2em;
+            transition: background-color 0.2s;
+        }
+        .upgrade:hover {
+            background-color: #ec971f;
+        }
+        #progress-container {
+            margin-top: 20px;
+            width: 80%;
+            height: 25px;
+            background-color: #ddd;
+            border-radius: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+        }
+        #progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #4CAF50;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>💸 Clicker de Bani 💸</h1>
+    <p id="money">Bani: 0</p>
+    <button id="click-btn">Click pentru bani!</button>
+
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <div id="upgrades">
+        <h2>Upgrade-uri:</h2>
+        <button class="upgrade" onclick="buyUpgrade(10, 1)">Upgrade 1 (10 bani): +1 bani/click</button>
+        <button class="upgrade" onclick="buyUpgrade(50, 5)">Upgrade 2 (50 bani): +5 bani/click</button>
+    </div>
+
+    <script>
+        let money = 0;
+        let moneyPerClick = 1;
+        let progress = 0;
+
+        document.getElementById("click-btn").addEventListener("click", function() {
+            money += moneyPerClick;
+            document.getElementById("money").textContent = "Bani: " + money;
+            updateProgress();
+        });
+
+        function buyUpgrade(cost, increase) {
+            if (money >= cost) {
+                money -= cost;
+                moneyPerClick += increase;
+                document.getElementById("money").textContent = "Bani: " + money;
+            } else {
+                alert("Nu ai suficienți bani pentru acest upgrade!");
+            }
+        }
+
+        function updateProgress() {
+            pro
